@@ -62,9 +62,9 @@ const Register = () => {
             }}
           />
         </label>
-        <button type="submit">Register</button>
+        <button disabled = {Loading || currentUser  } type="submit">Register</button>
       </form>
-      {/* disabled = {Loading || currentUser  } */}
+      
     </div>
   );
 };

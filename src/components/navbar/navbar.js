@@ -16,6 +16,16 @@ const Navbar = () => {
                     <h3>Register</h3>
                 </Link>
             </li>
+            <li>
+            <Link to = '/createquiz'>
+                <h3>Create Quiz</h3>
+            </Link>
+            </li>
+            <li>
+            <Link to = '/quiz'>
+                <h3> Quiz</h3>
+            </Link>
+            </li>
         </nav>
         </>
     );
