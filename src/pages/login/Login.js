@@ -1,20 +1,27 @@
 import { useState } from "react";
-
+import { login,useAuth } from "../../firebase-config";
+import { useHistory } from "react-router-dom";
 const Login = () => {
-    
     const [Email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
-    const handleSubmit = (e) => {
+    const [Password, setPassword] = useState(""); 
+    const [Loading, setLoading] = useState(false);
+    const history = useHistory();
+    const currentUser = useAuth();
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(Email);
-        console.log(Password);
-        if(Email === "harshit@gmail.com" && Password === "Sam"){
-            alert("Logged in")
+        setLoading(true);
+        try {
+          if (login(Email, Password) === "created") {
+            // console.log("hi",Email,Password);
+            history.replace("/base");
+          }
+          // console.log(signup(Email,Password))
+        } catch {
+          alert("Error!");
         }
-        else{
-            alert("!WRONG CREDANITALS")
-        }
-    } 
+        setLoading(false);
+      };
+    
     return (
         <div>
             <h2>LOGIN</h2>
@@ -27,7 +34,7 @@ const Login = () => {
                     <h3>Password:</h3>
                     <input type="password" value={Password} onChange= {(e) => setPassword(e.target.value)} />
                 </label>
-                <button type="submit" >Submit</button>
+                <button disablled = {Loading || currentUser}type="submit" >Submit</button>
             </form>
             <h4>New User? Register Here</h4>
         </div>
