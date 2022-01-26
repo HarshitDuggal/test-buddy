@@ -26,7 +26,8 @@ const Base = () => {
       <button disabled={Loading || !currentUser} onClick={handleLogout}>
         Logout
       </button>
-      Hello There     
+      Hello There  
+          
     </div>
   );
 };
