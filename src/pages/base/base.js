@@ -46,9 +46,9 @@ const Base = () => {
 
   return (
     <div className="base">
-      <button disabled={Loading || !currentUser} onClick={handleLogout}>
+      <Button disabled={Loading || !currentUser} onClick={handleLogout}>
         Logout
-      </button>  
+      </Button>  
       <h3>Marks in quiz are <Button onClick={quizmarks}>Click for marks</Button> <br></br>{marks} </h3>
     </div>
   );

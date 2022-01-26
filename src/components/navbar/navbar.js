@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar,Button } from "react-bootstrap";
 const Header = () => {
   return (
     <>
@@ -30,6 +30,7 @@ const Header = () => {
             <Nav.Link>
               <Link to="/base" className="link">Profile</Link>
             </Nav.Link>
+            <Button>Loout</Button>
           </Nav>
           </Navbar.Collapse>
          

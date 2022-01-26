@@ -105,14 +105,14 @@ const Quiz = () => {
                 />
               ) : null}
               {hide ? (
-                <button
-                  type="button"
+                <Button
+                  type="Button"
                   onClick={() => {
                     editChoice1(questchoi.id, questchoi.choice1);
                   }}
                 >
                   Edit Choice1
-                </button>
+                </Button>
               ) : null}
             </div>
               <br></br>
@@ -134,14 +134,14 @@ const Quiz = () => {
                 />
               ) : null}
               {hide ? (
-                <button
+                <Button
                   type="button"
                   onClick={() => {
                     editChoice2(questchoi.id, questchoi.choice2);
                   }}
                 >
                   Edit Choice2
-                </button>
+                </Button>
               ) : null}
             </div>
                 <br></br>
@@ -163,14 +163,14 @@ const Quiz = () => {
                 />
               ) : null}
               {hide ? (
-                <button
+                <Button
                   type="button"
                   onClick={() => {
                     editChoice3(questchoi.id, questchoi.choice3);
                   }}
                 >
                   Edit Choice3
-                </button>
+                </Button>
               ) : null}
             </div>
                 <br></br>
@@ -192,14 +192,14 @@ const Quiz = () => {
                 />
               ) : null}
               {hide ? (
-                <button
+                <Button
                   type="button"
                   onClick={() => {
                     editChoice4(questchoi.id, questchoi.choice4);
                   }}
                 >
                   Edit Choice4
-                </button>
+                </Button>
               ) : null}
             </div>
                 <br></br>
@@ -212,14 +212,14 @@ const Quiz = () => {
                 />
               ) : null}
               {hide ? (
-                <button
+                <Button
                   type="button"
                   onClick={() => {
                     editQuest(questchoi.id, questchoi.question);
                   }}
                 >
                   Edit Question
-                </button>
+                </Button>
               ) : null}
             </div>
             <Button
