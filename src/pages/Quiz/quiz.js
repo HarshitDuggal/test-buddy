@@ -20,6 +20,7 @@ const Quiz = () => {
   const [choice3, setchoice3] = useState("");
   const [choice4, setchoice4] = useState("");
   const [role, setrole] = useState('');
+  const [check, setcheck] = useState(false);
   useEffect(() => {
     const getUsers = async () => {
       const data = await getDocs(userCollectionRef);
@@ -81,15 +82,20 @@ const Quiz = () => {
     const newfield = { choice4: choice4 };
     await updateDoc(userDoc, newfield);
   };
-  const Role = () => {
-    
-    User.map(async (user, id) => {
-      if (user.Email === currentUser?.email) {
-         setrole(user.Role);
+  useEffect(() => {
+      User.map(async (user, id) => {
+        if (user.Email === currentUser?.email) {
+           setrole(user.Role);
+        }
+      });  
+      if(role === ''){
+        setcheck(true)
       }
-    });
+      else{
+        setcheck(false)
+      }
+  },[User, role, currentUser?.email]);
   
-}
   
 return (
     <div className="quiz">
@@ -241,9 +247,8 @@ return (
             </Button>
           </div>
         );
-      })}
-      
-      <Button className = "editquiz" onClick={() => sethide(!hide)}>Click to edit question</Button>
+      })} 
+      {check?<Button className = "editquiz" onClick={() => sethide(!hide)}>Click to edit question</Button>: null}
     </div>
   );
 };
