@@ -1,7 +1,10 @@
-.link{
+.link {
     text-decoration: none;
     color: black;
-}
-.nav{
+  }
+  .nav {
     margin-bottom: 10rem;
-}
+  }
+  .logoutBtn {
+    margin-left: 50rem;
+  }

@@ -49,8 +49,8 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button disablled={Loading || currentUser} type="submit">
-            Submit
+          <Button disabled={Loading || currentUser} type="submit">
+            Login
           </Button>
         </Form>
       </Container>
