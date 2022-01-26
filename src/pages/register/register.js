@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { collection } from "firebase/firestore";
 import { db, signup, useAuth } from "../../firebase-config";
-import {  addDoc } from "firebase/firestore";
+import { addDoc } from "firebase/firestore";
 import { useHistory } from "react-router-dom";
-
+import { Button, Container, Form } from "react-bootstrap";
+import "./register.css";
 const Register = () => {
   const history = useHistory();
   // const [Users, setUsers] = useState([]);
@@ -23,7 +24,11 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await addDoc(userCollectionRef, { Email: Email, Count: 0,Role: 'Student' });
+    await addDoc(userCollectionRef, {
+      Email: Email,
+      Count: 0,
+      Role: "Student",
+    });
     try {
       if (signup(Email, Password) === "created") {
         // console.log("hi",Email,Password);
@@ -37,34 +42,39 @@ const Register = () => {
   };
   return (
     <div id="main">
-      <div>Currently logged in as: {currentUser?.email}</div>
+      {/* <div>Currently logged in as: {currentUser?.email}</div> */}
       <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="Email">
-          <h3>Email:</h3>
-          <input
-            name="email"
-            type="email"
-            value={Email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </label>
-        <label htmlFor="password">
-          <h3>Password:</h3>
-          <input
-            name="password"
-            type="password"
-            value={Password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </label>
-        <button disabled = {Loading || currentUser  } type="submit">Register</button>
-      </form>
-      
+      <Container fluid>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email:</Form.Label>
+            {"                       "}
+            <input
+              name="email"
+              type="email"
+              value={Email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password:</Form.Label>
+            {"                       "}
+            <input
+              name="password"
+              type="password"
+              value={Password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </Form.Group>
+          <Button disabled={Loading || currentUser} type="submit">
+            Register
+          </Button>
+        </Form>
+      </Container>
     </div>
   );
 };

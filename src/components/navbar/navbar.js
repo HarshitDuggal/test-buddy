@@ -6,26 +6,33 @@ const Header = () => {
   return (
     <>
       <div className="nav">
-        <Navbar bg="info" variant="dark" fixed="top">
+        <Navbar bg="info" variant="dark" fixed="top" expand='lg' collapseOnSelect>
           <Navbar.Brand>
-            <Link to="/">
+            <Link to="/" className="link">
               <h2>Test Buddy</h2>
             </Link>
           </Navbar.Brand>
+          <Navbar.Toggle/>
+          <Navbar.Collapse>
           <Nav>
             <Nav.Link>
-              <Link to="/login">Login</Link>
+              <Link to="/login" className="link">Login</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/register">Register</Link>
+              <Link to="/register" className="link">Register</Link>
+            </Nav.Link>
+            <Nav.Link >
+              <Link to="/createquiz" className="link">Create Quiz</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/createquiz">Create Quiz</Link>
+              <Link to="/quiz" className="link">Quiz</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/quiz">Quiz</Link>
+              <Link to="/base" className="link">Profile</Link>
             </Nav.Link>
           </Nav>
+          </Navbar.Collapse>
+         
         </Navbar>
       </div>
       
