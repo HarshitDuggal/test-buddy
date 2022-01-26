@@ -2,7 +2,7 @@ import React from "react";
 import { logOut, useAuth } from "../../firebase-config";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import './base.css';
 const Base = () => {
   const history = useHistory();
   const currentUser = useAuth();
@@ -22,12 +22,10 @@ const Base = () => {
     setLoading(false);
   };
   return (
-    <div>
+    <div className="base">
       <button disabled={Loading || !currentUser} onClick={handleLogout}>
         Logout
-      </button>
-      Hello There  
-          
+      </button>           
     </div>
   );
 };

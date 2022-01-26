@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { login,useAuth } from "../../firebase-config";
 import { useHistory } from "react-router-dom";
+import { Button,Form } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 const Login = () => {
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState(""); 
@@ -25,18 +27,18 @@ const Login = () => {
     return (
         <div>
             <h2>LOGIN</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="Email">
-                    <h3>Username:</h3>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <b>Username:</b>
                     <input name = "Email" type="email" value={Email} onChange= {(e) => setEmail(e.target.value)} />
-                </label>
-                <label htmlFor="Password">
-                    <h3>Password:</h3>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                     <b>Password:</b>
                     <input type="password" value={Password} onChange= {(e) => setPassword(e.target.value)} />
-                </label>
-                <button disablled = {Loading || currentUser}type="submit" >Submit</button>
-            </form>
-            <h4>New User? Register Here</h4>
+                </Form.Group>
+                <Button disablled = {Loading || currentUser}type="submit" >Submit</Button>
+            </Form>
+            <h4>New User? <Link to='/register'>Register Here</Link></h4>
         </div>
     );
 }

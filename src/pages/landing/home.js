@@ -1,9 +1,9 @@
-
+import "./home.css"
 const Home = () => {
     return (
-        <>
-            Home      
-        </>
+        <div className="content">
+            Hi there Welcome to test buddy      
+        </div>
     );
 }
 
