@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { logOut, useAuth  } from "../../firebase-config";
+import { logOut, useAuth } from "../../firebase-config";
 import { useState,useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./navbar.css";

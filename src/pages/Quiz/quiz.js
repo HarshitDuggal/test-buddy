@@ -8,6 +8,7 @@ const Quiz = () => {
   const currentUser = useAuth();
   const [Quiz, setQuiz] = useState([]);
   const [User, setUser] = useState([]);
+  const [isSelect, setIsSelect] = useState(false);
   // const [Count, setCount] = useState(0);
   const userCollectionRef = collection(db, "Quiz");
   const userCollectionRef2 = collection(db, "Users");
@@ -19,7 +20,7 @@ const Quiz = () => {
   const [choice2, setchoice2] = useState("");
   const [choice3, setchoice3] = useState("");
   const [choice4, setchoice4] = useState("");
-  const [role, setrole] = useState('');
+  const [role, setrole] = useState("");
   const [check, setcheck] = useState(false);
   useEffect(() => {
     const getUsers = async () => {
@@ -37,6 +38,7 @@ const Quiz = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSelect(!isSelect);
     setgivenAnswer(e.target.id);
     setcorrectAnswer(e.target.value);
   };
@@ -83,27 +85,27 @@ const Quiz = () => {
     await updateDoc(userDoc, newfield);
   };
   useEffect(() => {
-      User.map(async (user, id) => {
-        if (user.Email === currentUser?.email) {
-           setrole(user.Role);
-        }
-      });  
-      if(role === ''){
-        setcheck(true)
+    User.map(async (user, id) => {
+      if (user.Email === currentUser?.email) {
+        setrole(user.Role);
       }
-      else{
-        setcheck(false)
-      }
-  },[User, role, currentUser?.email]);
-  
-  
-return (
+    });
+    if (role === "") {
+      setcheck(true);
+    } else {
+      setcheck(false);
+    }
+  }, [User, role, currentUser?.email]);
+
+  let btn_class = isSelect ? "selectedBtn" : "choice";
+  return (
     <div className="quiz">
       {Quiz.map((questchoi, id) => {
         return (
           <div key={id}>
              <h3 className="question">Question: {questchoi.question}</h3>
-            <button className="choice"
+            <button
+              className={btn_class}
               onClick={(e) => handleSubmit(e)}
               name={questchoi.name}
               type="radio"
@@ -132,7 +134,8 @@ return (
               ) : null}
             </div>
               <br></br>
-            <button className="choice"
+            <button
+              className="choice"
               onClick={(e) => handleSubmit(e)}
               name={questchoi.name}
               type="radio"
@@ -161,7 +164,8 @@ return (
               ) : null}
             </div>
                 <br></br>
-            <button className="choice"
+            <button
+              className="choice"
               onClick={(e) => handleSubmit(e)}
               name={questchoi.name}
               type="radio"
@@ -190,7 +194,8 @@ return (
               ) : null}
             </div>
                 <br></br>
-            <button className="choice"
+            <button
+              className="choice"
               onClick={(e) => handleSubmit(e)}
               name={questchoi.name}
               type="radio"
@@ -247,8 +252,12 @@ return (
             </Button>
           </div>
         );
-      })} 
-      {check?<Button className = "editquiz" onClick={() => sethide(!hide)}>Click to edit question</Button>: null}
+      })}
+      {check ? (
+        <Button className="editquiz" onClick={() => sethide(!hide)}>
+          Click to edit question
+        </Button>
+      ) : null}
     </div>
   );
 };
