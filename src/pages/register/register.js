@@ -32,7 +32,13 @@ const Register = () => {
     try {
       if (signup(Email, Password) === "created") {
         // console.log("hi",Email,Password);
+       if(Password.length>=6){
         history.replace("/base");
+       } 
+       else{
+         alert("Please enter a strong password")
+       }
+       
       }
       // console.log(signup(Email,Password))
     } catch {
