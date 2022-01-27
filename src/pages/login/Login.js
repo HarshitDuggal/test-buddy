@@ -26,7 +26,7 @@ const Login = () => {
   };
 
   return (
-    <div className="content">
+    <div className="content-login">
       <h2>LOGIN</h2>
       <Container fluid>
         <Form onSubmit={handleSubmit}>

@@ -8,7 +8,7 @@ const Quiz = () => {
   const currentUser = useAuth();
   const [Quiz, setQuiz] = useState([]);
   const [User, setUser] = useState([]);
-  const [isSelect, setIsSelect] = useState(false);
+  // const [isSelect, setIsSelect] = useState(false);
   // const [Count, setCount] = useState(0);
   const userCollectionRef = collection(db, "Quiz");
   const userCollectionRef2 = collection(db, "Users");
@@ -38,7 +38,6 @@ const Quiz = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSelect(!isSelect);
     setgivenAnswer(e.target.id);
     setcorrectAnswer(e.target.value);
   };
@@ -97,7 +96,7 @@ const Quiz = () => {
     }
   }, [User, role, currentUser?.email]);
 
-  let btn_class = isSelect ? "selectedBtn" : "choice";
+  // let btn_class = isSelect ? handleSubmit : null;
   return (
     <div className="quiz">
       {Quiz.map((questchoi, id) => {
@@ -105,8 +104,8 @@ const Quiz = () => {
           <div key={id}>
              <h3 className="question">Question: {questchoi.question}</h3>
             <button
-              className={btn_class}
-              onClick={(e) => handleSubmit(e)}
+              className='choice'
+              onClick = {(e) => handleSubmit(e)}
               name={questchoi.name}
               type="radio"
               id={questchoi.choice1}
