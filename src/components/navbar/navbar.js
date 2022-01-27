@@ -76,14 +76,14 @@ useEffect(() => {
           <Navbar.Collapse>
             <Nav>
               <Nav.Link>
-                <Link to="/login" className="link">
+                {check?null:<Link to="/login" className="link">
                   Login
-                </Link>
+                </Link>}
               </Nav.Link>
               <Nav.Link>
-                <Link to="/register" className="link">
+                {check?null:<Link to="/register" className="link">
                   Register
-                </Link>
+                </Link>}
               </Nav.Link>
               <Nav.Link>
                 {check?<Link to="/createquiz" className="link">

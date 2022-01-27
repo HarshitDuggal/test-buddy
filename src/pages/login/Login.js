@@ -22,7 +22,7 @@ const Login = () => {
         // console.log("hi",Email,Password);
         
         if(currentUser?.Email===Users.Email){
-          history.replace("/base");
+          history.replace("/");
         }
         else{
           alert("!Please insert correct credentials");

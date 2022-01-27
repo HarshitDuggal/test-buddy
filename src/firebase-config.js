@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { Firestore, getFirestore } from "firebase/firestore";
+import {  getFirestore } from "firebase/firestore";
 import {  getAuth,  createUserWithEmailAndPassword,  onAuthStateChanged,  signOut,  signInWithEmailAndPassword,} from "firebase/auth";
 import { useState, useEffect } from "react";
 
