@@ -27,7 +27,7 @@ const Register = () => {
     await addDoc(userCollectionRef, {
       Email: Email,
       Count: 0,
-      Role: "Teacher",
+      Role: "Student",
     });
     try {
       if (signup(Email, Password) === "created") {

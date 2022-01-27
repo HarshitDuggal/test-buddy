@@ -3,14 +3,14 @@ import {  getFirestore } from "firebase/firestore";
 import {  getAuth,  createUserWithEmailAndPassword,  onAuthStateChanged,  signOut,  signInWithEmailAndPassword,} from "firebase/auth";
 import { useState, useEffect } from "react";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCKhzSuS6phCnS_4K9qdlQOS4zL6SQf1og",
-  authDomain: "test-buddy-af762.firebaseapp.com",
-  projectId: "test-buddy-af762",
-  storageBucket: "test-buddy-af762.appspot.com",
-  messagingSenderId: "168466573022",
-  appId: "1:168466573022:web:e43c625bb2c24ad78f844f",
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyCDh5AGIh3AVzE-75_2sBEeTXJ-0AfQOkY",
+    authDomain: "test-buddy-16d4c.firebaseapp.com",
+    projectId: "test-buddy-16d4c",
+    storageBucket: "test-buddy-16d4c.appspot.com",
+    messagingSenderId: "2268894663",
+    appId: "1:2268894663:web:74f9f671d48992033ff5e2"
+  };
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
