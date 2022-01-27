@@ -47,7 +47,7 @@ useEffect(() => {
     try {
       await logOut();
       if (currentUser.UserImpl === undefined) {
-        history.push("/");
+        history.push("/login");
       } else {
         alert("!Something went wrong");
       }

@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { login, useAuth } from "../../firebase-config";
+import { useState,useEffect } from "react";
+import { login, useAuth,db } from "../../firebase-config";
 import { useHistory } from "react-router-dom";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
 import "./login .css";
 const Login = () => {
   const [Email, setEmail] = useState("");
@@ -10,13 +11,22 @@ const Login = () => {
   const [Loading, setLoading] = useState(false);
   const history = useHistory();
   const currentUser = useAuth();
+  const userCollectionRef = collection(db, "Users");
+  const [Users, setUsers] = useState([]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       if (login(Email, Password) === "created") {
         // console.log("hi",Email,Password);
-        history.replace("/base");
+        
+        if(currentUser?.Email===Users.Email){
+          history.replace("/base");
+        }
+        else{
+          alert("!Please insert correct credentials");
+        }
       }
       // console.log(signup(Email,Password))
     } catch {
@@ -24,7 +34,13 @@ const Login = () => {
     }
     setLoading(false);
   };
-
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(userCollectionRef);
+      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getUsers();
+  });
   return (
     <div className="content-login">
       <h2>LOGIN</h2>

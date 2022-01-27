@@ -1,5 +1,21 @@
-.base{
-        margin-top: 100px ;
+.base {
+        margin-top: 100px;
+        text-align: center;
         padding: 12px;
-        height: 3000px;
-}
+        background-color: lightblue;
+        width: 400px;
+        height: 500px;
+        border-radius: 2rem;
+      }
+      .profile {
+        margin-top: 4rem;
+      }
+      .totalScore {
+        margin-bottom: 5rem;
+      }
+      .alertText {
+        color: red;
+      }
+      .email {
+        margin-top: 1rem;
+      }

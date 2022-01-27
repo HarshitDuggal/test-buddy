@@ -1,6 +1,7 @@
 import "./home.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
@@ -11,7 +12,7 @@ const Home = () => {
           <Card.Body>
             <Card.Title>Dsa Quiz</Card.Title>
             <Card.Text>These are the quiz related to the topic</Card.Text>
-            <Button variant="primary">Quiz</Button>
+            <Button variant="primary"><Link to ="./quiz" className="link">Quiz</Link></Button>
           </Card.Body>
         </Card>
         <Card style={{ width: "18rem" }}>
@@ -19,7 +20,7 @@ const Home = () => {
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
             <Card.Text>These are the quiz related to the topic</Card.Text>
-            <Button variant="primary">Quiz</Button>
+            <Button variant="primary"><Link to ="./quiz" className="link">Quiz</Link></Button>
           </Card.Body>
         </Card>
         <Card style={{ width: "18rem" }}>
@@ -27,7 +28,7 @@ const Home = () => {
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
             <Card.Text>These are the quiz related to the topic</Card.Text>
-            <Button variant="primary">Quiz</Button>
+            <Button variant="primary"><Link to ="./quiz" className="link">Quiz</Link></Button>
           </Card.Body>
         </Card>
         <Card style={{ width: "18rem" }}>
@@ -35,7 +36,7 @@ const Home = () => {
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
             <Card.Text>These are the quiz related to the topic</Card.Text>
-            <Button variant="primary">Quiz</Button>
+            <Button variant="primary" ><Link to="./quiz" className="link">Quiz</Link></Button>
           </Card.Body>
         </Card>
       </div>
